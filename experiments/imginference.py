@@ -305,8 +305,8 @@ def gp(dataset_name, ds_train, ds_test, ds_ood, model_name, batch_size, seed):
         # strip off filename ending using indexing
         ds, m, s, delta = file[:-3].split('_')
         if ds == dataset_name and m == model_name and float(delta) > 0 and seed == int(s):
-            eligible_files.append('models/' + file)
-            state = torch.load('models/' + file)
+            eligible_files.append('models/500_epochs/' + file)
+            state = torch.load('models/500_epochs/' + file)
             if 'map' not in state:
                 continue
             perfs.append(state['map']['nll_va'])
